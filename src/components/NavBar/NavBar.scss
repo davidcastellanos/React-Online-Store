@@ -1,0 +1,33 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+
+    background-color: #1B207B;
+
+
+    .logo img {
+        position: relative;
+        width: 160;
+      }
+    
+
+    a {
+        margin-left: 10px;
+        color: white;
+        text-decoration: none;
+      }
+
+      .buttonLogin {
+        background-color: #4CAF50; 
+        border: none;
+        color: white;
+        padding: 10px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+}
