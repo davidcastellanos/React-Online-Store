@@ -21,8 +21,10 @@ export const NavBar = ({menu}) => {
             </a>
             
         
-            <nav className='menu'> {lista} 
+            <nav className='menu'> 
+            {lista} 
             <button className="buttonLogin">Login</button>
+            <button className="buttonSignUp">Sign Up</button>
             </nav>
 
        </header>
