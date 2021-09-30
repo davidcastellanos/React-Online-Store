@@ -8,32 +8,34 @@ export const ItemCount = ({ initialValue }) => {
   const [contadorItem, setContadorItem] = useState(initialValue);
 
   const incrementar = () => {
-    setContadorItem(contadorItem + 1);
+    if (contadorItem <= 19) {
+      setContadorItem(contadorItem + 1);
+    }
   };
 
   const restar = () => {
-    setContadorItem(contadorItem - 1);
+    if (contadorItem > 0) {
+      setContadorItem(contadorItem - 1);
+    }
   };
 
   const resetear = () => {
     setContadorItem(initialValue);
   };
 
-  console.log(contadorItem);
-
   return (
     <>
       <ButtonGroup size='sm'>
-        <Button variant='danger' onClick={() => resetear()}>
+        <Button variant='danger' onClick={() => resetear()} id='reset'>
           Reset
         </Button>
-        <Button variant='warning' onClick={() => restar()}>
+        <Button variant='warning' onClick={() => restar()} id='resta'>
           -
         </Button>
         <Card body>
           <h6>{contadorItem}</h6>
         </Card>
-        <Button variant='success' onClick={() => incrementar()}>
+        <Button variant='success' onClick={() => incrementar()} id='suma'>
           +
         </Button>
       </ButtonGroup>
