@@ -1,46 +1,45 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10%;
 
-    background-color: #1B207B;
+  background-color: #1b207b;
 
+  .logo {
+    .imagen-logo {
+      position: relative;
+      width: 160;
+    }
+  }
 
-    .logo img {
-        position: relative;
-        width: 160;
-      }
-    
+  a {
+    margin-left: 10px;
+    color: white;
+    text-decoration: none;
+  }
 
-    a {
-        margin-left: 10px;
-        color: white;
-        text-decoration: none;
-      }
+  .buttonLogin {
+    background-color: #008cba;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 10px;
+    cursor: pointer;
+  }
 
-      .buttonLogin {
-        background-color: #008CBA; 
-        border: none;
-        color: white;
-        padding: 10px 25px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        margin-left: 10px;
-        cursor: pointer;
-
-      }
-
-      .buttonSignUp {
-        background-color: #4CAF50; 
-        border: none;
-        color: white;
-        padding: 10px 25px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        margin-left: 10px;
-        cursor: pointer;
-      }
+  .buttonSignUp {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 10px;
+    cursor: pointer;
+  }
 }
