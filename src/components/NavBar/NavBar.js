@@ -17,7 +17,7 @@ export const NavBar = ({ menu }) => {
   return (
     <header className='navbar'>
       <a href='https://www.google.com/' className='logo'>
-        <img src={logo} alt='imagen' className='imagen-logo' />
+        <img src={logo} alt='imagen' />
       </a>
 
       <nav className='menu'>

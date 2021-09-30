@@ -23,7 +23,7 @@ export const ItemCount = ({ initialValue }) => {
 
   return (
     <>
-      <ButtonGroup size='sm' className='mb-2'>
+      <ButtonGroup size='sm'>
         <Button variant='danger' onClick={() => resetear()}>
           Reset
         </Button>
@@ -31,7 +31,7 @@ export const ItemCount = ({ initialValue }) => {
           -
         </Button>
         <Card body>
-          <h4>{contadorItem}</h4>
+          <h6>{contadorItem}</h6>
         </Card>
         <Button variant='success' onClick={() => incrementar()}>
           +

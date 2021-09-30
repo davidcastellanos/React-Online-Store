@@ -2,15 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 10%;
+  padding: 20px 2%;
 
   background-color: #1b207b;
 
-  .logo {
-    .imagen-logo {
-      position: relative;
-      width: 160;
-    }
+  .logo img {
+    position: relative;
+    width: 160;
   }
 
   a {
