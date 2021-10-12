@@ -35,6 +35,10 @@ function App() {
             <h1>Mi Sign Up</h1>
           </Route>
 
+          <Route exact path='/cart'>
+            <h1>Mi cart</h1>
+          </Route>
+
           <Route path='*'>
             <Redirect to='/' />
           </Route>
