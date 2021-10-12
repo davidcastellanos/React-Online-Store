@@ -2,29 +2,53 @@ import React from 'react';
 import './NavBar.scss';
 import logo from '../../assets/img/logo.png';
 import { CartWidget } from '../CardWidget/CartWidget';
+import { Link, NavLink } from 'react-router-dom';
 
 export const NavBar = ({ menu }) => {
   //console.log(menu);
-  const lista = menu.map((elemento, index) => {
-    return (
-      <a href='https://www.google.com/' key={index}>
-        {elemento}
-      </a>
-    );
-  });
+  // const lista = menu.map((elemento, index) => {
+  //   return (
+  //     <a key={index}>
+  //       {elemento}
+  //     </a>
+  //   );
+  // });
 
   /* Render */
   return (
     <header className='navbar'>
-      <a href='https://www.google.com/' className='logo'>
+      <NavLink exact to='/' className='logo'>
         <img src={logo} alt='imagen' />
-      </a>
+      </NavLink>
 
       <nav className='menu'>
-        {lista}
-        <button className='buttonLogin'>Login</button>
-        <button className='buttonSignUp'>Sign Up</button>
-        <CartWidget cantidad={0} />
+        <NavLink activeClassName={'activeLink'} exact to='/'>
+          Inicio
+        </NavLink>
+        <NavLink activeClassName={'activeLink'} exact to='/productos/camisas'>
+          Camisas
+        </NavLink>
+        <NavLink activeClassName={'activeLink'} exact to='/productos/jeans'>
+          Jeans
+        </NavLink>
+        <NavLink activeClassName={'activeLink'} exact to='/productos/zapatos'>
+          Zapatos
+        </NavLink>
+
+        <NavLink activeClassName={'activeLink'} exact to='/contacto'>
+          Contacto
+        </NavLink>
+
+        <NavLink exact to='/login'>
+          <button className='buttonLogin'>Login</button>
+        </NavLink>
+
+        <NavLink exact to='/signup'>
+          <button className='buttonSignUp'>Sign Up</button>
+        </NavLink>
+        <Link to='/cart'>
+          <CartWidget cantidad={0} />
+        </Link>
       </nav>
     </header>
   );

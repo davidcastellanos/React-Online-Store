@@ -4,14 +4,35 @@ import './App.scss';
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 import { NavBar } from './components/NavBar/NavBar';
 import { ItemCount } from './components/ItemCount/ItemCount';
-import { Item } from './components/Item/Item';
+// import { Item } from './components/Item/Item';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
   return (
     <>
-      <NavBar menu={menu} />
-      <ItemListContainer />
-      <ItemCount initialValue={0} />
+      <BrowserRouter>
+        <NavBar menu={menu} />
+        <Switch>
+          <Route exact path='/'>
+            <ItemListContainer />
+          </Route>
+          <Route exact path='/productos/:categoryId'>
+            <ItemListContainer />
+          </Route>
+          <Route exact path='/detail/:itemId'>
+            <ItemDetailContainer />
+          </Route>
+          <Route exact path='/contacto'>
+            <h1>Contacto</h1>
+          </Route>
+          <ItemCount initialValue={0} />
+
+          <Route path='*'>
+            <Redirect to='/' />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </>
   );
 }

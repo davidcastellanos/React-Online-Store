@@ -10,6 +10,7 @@ export const stock = [
     description: 'Lorem ipsum',
     price: 1500,
     img: 'https://via.placeholder.com/250',
+    category: 'camisas',
   },
   {
     id: 2,
@@ -17,6 +18,7 @@ export const stock = [
     description: 'Lorem ipsum',
     price: 2500,
     img: 'https://via.placeholder.com/250',
+    category: 'jeans',
   },
   {
     id: 3,
@@ -24,6 +26,7 @@ export const stock = [
     description: 'Lorem ipsum',
     price: 800,
     img: 'https://via.placeholder.com/250',
+    category: 'zapatos',
   },
   {
     id: 4,
@@ -31,6 +34,7 @@ export const stock = [
     description: 'Lorem ipsum',
     price: 6000,
     img: 'https://via.placeholder.com/250',
+    category: 'camisas',
   },
   {
     id: 5,
@@ -38,6 +42,7 @@ export const stock = [
     description: 'Lorem ipsum',
     price: 300,
     img: 'https://via.placeholder.com/250',
+    category: 'jeans',
   },
   {
     id: 6,
@@ -45,6 +50,7 @@ export const stock = [
     description: 'Lorem ipsum',
     price: 3200,
     img: 'https://via.placeholder.com/250',
+    category: 'zapatos',
   },
   {
     id: 7,
@@ -52,6 +58,7 @@ export const stock = [
     description: 'Lorem ipsum',
     price: 4110,
     img: 'https://via.placeholder.com/250',
+    category: 'camisas',
   },
   {
     id: 8,
@@ -59,6 +66,7 @@ export const stock = [
     description: 'Lorem ipsum',
     price: 5000,
     img: 'https://via.placeholder.com/250',
+    category: 'jeans',
   },
   {
     id: 9,
@@ -66,5 +74,6 @@ export const stock = [
     description: 'Lorem ipsum',
     price: 1100,
     img: 'https://via.placeholder.com/250',
+    category: 'zapatos',
   },
 ];
