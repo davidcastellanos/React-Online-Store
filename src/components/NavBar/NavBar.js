@@ -46,9 +46,9 @@ export const NavBar = ({ menu }) => {
         <NavLink exact to='/signup'>
           <button className='buttonSignUp'>Sign Up</button>
         </NavLink>
-        <Link to='/cart'>
+        <NavLink exact to='/cart'>
           <CartWidget cantidad={0} />
-        </Link>
+        </NavLink>
       </nav>
     </header>
   );
