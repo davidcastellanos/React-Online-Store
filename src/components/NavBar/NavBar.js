@@ -1,55 +1,44 @@
 import React from 'react';
-import './NavBar.scss';
-import logo from '../../assets/img/logo.png';
-import { CartWidget } from '../CardWidget/CartWidget';
+import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { UserAuthContext } from '../../context/UserAuthContext';
+import { CartWidget } from './CartWidget';
+import logo from '../../assets/logo.png';
+import './NavBar.scss';
 
-export const NavBar = ({ menu }) => {
-  //console.log(menu);
-  // const lista = menu.map((elemento, index) => {
-  //   return (
-  //     <a key={index}>
-  //       {elemento}
-  //     </a>
-  //   );
-  // });
-
-  /* Render */
+export const NavBar = () => {
+  const { isAuthenticated, setIsAuthenticated } = useContext(UserAuthContext);
+  const handlesubmit = () => {
+    setIsAuthenticated(false);
+  };
   return (
-    <header className='navbar'>
+    <header className='header'>
       <NavLink exact to='/' className='logo'>
         <img src={logo} alt='imagen' />
       </NavLink>
 
-      <nav className='menu'>
-        <NavLink activeClassName={'activeLink'} exact to='/'>
-          Inicio
-        </NavLink>
-        <NavLink activeClassName={'activeLink'} exact to='/productos/camisas'>
-          Camisas
-        </NavLink>
-        <NavLink activeClassName={'activeLink'} exact to='/productos/jeans'>
-          Jeans
-        </NavLink>
-        <NavLink activeClassName={'activeLink'} exact to='/productos/zapatos'>
-          Zapatos
-        </NavLink>
+      <div>
+        <nav>
+          <NavLink activeClassName={'activeLink'} exact to='/'>
+            Inicio
+          </NavLink>
+          <NavLink activeClassName={'activeLink'} exact to='/productos/remeras'>
+            Remeras
+          </NavLink>
+          <NavLink activeClassName={'activeLink'} exact to='/productos/zapatos'>
+            Zapatos
+          </NavLink>
 
-        <NavLink activeClassName={'activeLink'} exact to='/contacto'>
-          Contacto
-        </NavLink>
+          <NavLink activeClassName={'activeLink'} exact to='/contacto'>
+            Contacto
+          </NavLink>
 
-        <NavLink exact to='/login'>
-          <button className='buttonLogin'>Login</button>
-        </NavLink>
-
-        <NavLink exact to='/signup'>
-          <button className='buttonSignUp'>Sign Up</button>
-        </NavLink>
-        <NavLink exact to='/cart'>
-          <CartWidget cantidad={0} />
-        </NavLink>
-      </nav>
+          <Link to='/cart'>
+            <CartWidget />
+          </Link>
+          {!isAuthenticated || <button onClick={handlesubmit}> Salir</button>}
+        </nav>
+      </div>
     </header>
   );
 };

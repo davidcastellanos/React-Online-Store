@@ -1,8 +1,3 @@
-/*POR PROBAR API */
-// let todosLosProductos = fetch('https://fakestoreapi.com/products')
-//   .then((res) => res.json())
-//   .then((json) => console.log(json));
-
 export const stock = [
   {
     id: 1,
@@ -10,7 +5,8 @@ export const stock = [
     description: 'Lorem ipsum',
     price: 1500,
     img: 'https://via.placeholder.com/250',
-    category: 'camisas',
+    category: 'remeras',
+    stock: 20,
   },
   {
     id: 2,
@@ -18,7 +14,8 @@ export const stock = [
     description: 'Lorem ipsum',
     price: 2500,
     img: 'https://via.placeholder.com/250',
-    category: 'jeans',
+    category: 'remeras',
+    stock: 20,
   },
   {
     id: 3,
@@ -27,6 +24,7 @@ export const stock = [
     price: 800,
     img: 'https://via.placeholder.com/250',
     category: 'zapatos',
+    stock: 20,
   },
   {
     id: 4,
@@ -34,46 +32,53 @@ export const stock = [
     description: 'Lorem ipsum',
     price: 6000,
     img: 'https://via.placeholder.com/250',
-    category: 'camisas',
+    category: 'zapatos',
+    stock: 20,
   },
+
   {
     id: 5,
     name: 'Producto 5',
     description: 'Lorem ipsum',
-    price: 300,
+    price: 1820,
     img: 'https://via.placeholder.com/250',
-    category: 'jeans',
+    category: 'remeras',
+    stock: 20,
   },
   {
     id: 6,
     name: 'Producto 6',
     description: 'Lorem ipsum',
-    price: 3200,
+    price: 1100,
     img: 'https://via.placeholder.com/250',
-    category: 'zapatos',
+    category: 'remeras',
+    stock: 20,
   },
   {
     id: 7,
     name: 'Producto 7',
     description: 'Lorem ipsum',
-    price: 4110,
+    price: 220,
     img: 'https://via.placeholder.com/250',
-    category: 'camisas',
+    category: 'zapatos',
+    stock: 20,
   },
   {
     id: 8,
     name: 'Producto 8',
     description: 'Lorem ipsum',
-    price: 5000,
+    price: 3200,
     img: 'https://via.placeholder.com/250',
-    category: 'jeans',
+    category: 'zapatos',
+    stock: 20,
   },
   {
     id: 9,
     name: 'Producto 9',
     description: 'Lorem ipsum',
-    price: 1100,
+    price: 4100,
     img: 'https://via.placeholder.com/250',
-    category: 'zapatos',
+    category: 'remeras',
+    stock: 20,
   },
 ];

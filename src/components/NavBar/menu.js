@@ -1,1 +1,0 @@
-export let menu = ['Home', 'Tarjeta Crédito', 'Descuentos y Beneficios', 'Blog', 'Ayuda']

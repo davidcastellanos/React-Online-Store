@@ -1,44 +1,37 @@
-import React, { useState } from 'react';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import Button from 'react-bootstrap/Button';
-import { Card } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react'
 
-export const ItemCount = ({ initialValue }) => {
-  const [contadorItem, setContadorItem] = useState(initialValue);
 
-  const incrementar = () => {
-    if (contadorItem <= 19) {
-      setContadorItem(contadorItem + 1);
+export const ItemCount = ( {cantidad, modify, max} ) => {
+
+    const handleRestar = () => {
+        if (cantidad > 0)  {
+            modify(cantidad - 1)
+        }
     }
-  };
 
-  const restar = () => {
-    if (contadorItem > 0) {
-      setContadorItem(contadorItem - 1);
+    const handleSumar = () => {
+        if (cantidad < max) {
+            modify(cantidad + 1)
+        }
     }
-  };
 
-  const resetear = () => {
-    setContadorItem(initialValue);
-  };
+    return (
+        <div>
+            <button
+                onClick={handleRestar}
+                className="btn btn-primary"
+            >
+                -
+            </button>
 
-  return (
-    <>
-      <ButtonGroup size='sm'>
-        <Button variant='danger' onClick={() => resetear()} id='reset'>
-          Reset
-        </Button>
-        <Button variant='warning' onClick={() => restar()} id='resta'>
-          -
-        </Button>
-        <Card body>
-          <h6>{contadorItem}</h6>
-        </Card>
-        <Button variant='success' onClick={() => incrementar()} id='suma'>
-          +
-        </Button>
-      </ButtonGroup>
-    </>
-  );
-};
+            <span className="mx-3">{cantidad}</span>
+
+            <button
+                onClick={handleSumar}
+                className="btn btn-primary"
+            >
+                +
+            </button>
+        </div>
+    )
+}

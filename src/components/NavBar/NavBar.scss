@@ -1,48 +1,44 @@
-.navbar {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 2%;
-
   background-color: #1b207b;
+  padding: 12px 10%;
 
-  .logo img {
-    position: relative;
-    width: 160;
-  }
-
-  a {
-    margin-left: 10px;
+  h1 {
+    font-size: 36px;
+    font-weight: 700;
     color: white;
-    text-decoration: none;
   }
 
-  .buttonLogin {
-    background-color: #008cba;
-    border: none;
-    color: white;
-    padding: 10px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin-left: 10px;
-    cursor: pointer;
-  }
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  .buttonSignUp {
-    background-color: #4caf50;
-    border: none;
-    color: white;
-    padding: 10px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin-left: 10px;
-    cursor: pointer;
-  }
+    nav {
+      width: 50%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
-  .activeLink {
-    border: 2px white solid;
-    border-radius: 5px;
+      a {
+        color: white;
+        font-weight: 700;
+        font-size: 22px;
+        text-decoration: none;
+        padding: 10px;
+      }
+
+      .activeLink {
+        border: 2px white solid;
+        border-radius: 5px;
+      }
+    }
+
+    .widget {
+      color: white;
+      font-size: 30px;
+    }
   }
 }

@@ -1,49 +1,74 @@
-import React from 'react';
-import { menu } from './components/NavBar/menu';
-import './App.scss';
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
-import { NavBar } from './components/NavBar/NavBar';
-// import { ItemCount } from './components/ItemCount/ItemCount';
-// import { Item } from './components/Item/Item';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
+import { NavBar } from './components/NavBar/NavBar';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+  BrowserRouter,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom'
+import { CartProvider } from './context/CartContext';
+import { CartScreen } from './components/CartScreen/CartScreen';
+import { UIProvider } from './context/UIContext';
+import { UserAuthContext } from './context/UserAuthContext';
+import { useContext } from 'react';
+import { UserAuthenticate } from './components/UserAuthenticate/UserAuthenticate';
 
-function App() {
+
+
+
+function App() {  
+
+  const {isAuthenticated} = useContext(UserAuthContext);
+
   return (
     <>
-      <BrowserRouter>
-        <NavBar menu={menu} />
-        <Switch>
-          <Route exact path='/'>
-            <ItemListContainer />
-          </Route>
-          <Route exact path='/productos/:categoryId'>
-            <ItemListContainer />
-          </Route>
-          <Route exact path='/detail/:itemId'>
-            <ItemDetailContainer />
-          </Route>
-          <Route exact path='/contacto'>
-            <h1>Contacto</h1>
-          </Route>
+      <UIProvider>
+        <CartProvider>
 
-          <Route exact path='/login'>
-            <h1>Mi Login</h1>
-          </Route>
+          <BrowserRouter>
+            <NavBar logo="Proyecto Profe"/>
 
-          <Route exact path='/signup'>
-            <h1>Mi Sign Up</h1>
-          </Route>
+            <Switch>
+            { isAuthenticated 
+              ?
+              <>
+              <Route exact path="/">
+                  <ItemListContainer />
+              </Route>
 
-          <Route exact path='/cart'>
-            <h1>Mi cart</h1>
-          </Route>
+              <Route exact path="/productos/:categoryId">
+                  <ItemListContainer />
+              </Route>
 
-          <Route path='*'>
-            <Redirect to='/' />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+              <Route exact path="/detail/:itemId">
+                  <ItemDetailContainer />
+              </Route>
+
+              <Route exact path="/contacto">
+                  <h1>Contacto</h1>
+              </Route>
+
+              <Route exact path="/cart">
+                <CartScreen/>
+              </Route>
+
+              <Route path="*">
+                  <Redirect to="/"/>
+              </Route>
+              {/* <Route path="*">
+                  <h2>404... no encontrado</h2>
+              </Route> */}
+              </>
+              :
+                <UserAuthenticate/>
+              }
+            </Switch>
+          </BrowserRouter>
+
+        </CartProvider>
+      </UIProvider>
     </>
   );
 }
