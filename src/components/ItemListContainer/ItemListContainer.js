@@ -1,59 +1,44 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { useParams } from 'react-router'
-import { UIContext } from '../../context/UIContext'
-import { pedirProductos } from '../../helpers/pedirProductos'
-import { ItemList } from './ItemList'
-
-// query params
-// const URL = 'https://www.google.com/search?q=coderhouse&limit=10'
-
+import React, { useContext, useEffect, useState } from 'react';
+import { useParams } from 'react-router';
+import { UIContext } from '../../context/UIContext';
+import { pedirProductos } from '../../helpers/pedirProductos';
+import { ItemList } from './ItemList';
 
 export const ItemListContainer = () => {
+  const [items, setItems] = useState([]);
 
-    const [items, setItems] = useState([])
-    
-    const {loading, setLoading} = useContext(UIContext)
+  const { loading, setLoading } = useContext(UIContext);
 
- 
-    const {categoryId} = useParams()
+  const { categoryId } = useParams();
 
-    useEffect(()=>{
-        setLoading(true)
+  useEffect(() => {
+    setLoading(true);
 
-        pedirProductos()
-            .then((res) => {
+    pedirProductos()
+      .then((res) => {
+        if (categoryId) {
+          setItems(res.filter((prod) => prod.category === categoryId));
+        } else {
+          setItems(res);
+        }
+      })
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setLoading(false);
+      });
+  }, [categoryId, setLoading]);
 
-                if (categoryId) {
-                    setItems( res.filter( prod => prod.category === categoryId) )
-                } else {
-                    setItems( res )
-                }
-            })
-            .catch((err) => console.log(err))
-            .finally(() => {
-                setLoading(false)
-            })
+  // useEffect(async ()=> {
+  //    // mock llamado a la API
+  //     const res = await pedirProductos()
+  //     console.log(res)
+  // }, [])
 
-    }, [categoryId, setLoading])
-
-    // useEffect(async ()=> {
-    //    // mock llamado a la API
-    //     const res = await pedirProductos()
-    //     console.log(res)
-    // }, [])
-
-
-    return (
-        <section className="container my-5">
-            {
-                loading 
-                    ? <h2>Cargando...</h2>
-                    : <ItemList productos={items}/>
-            }
-            
-        </section>
-    )
-}
-
+  return (
+    <section className='container my-5'>
+      {loading ? <h2>Cargando...</h2> : <ItemList productos={items} />}
+    </section>
+  );
+};
 
 // export default HomeView
